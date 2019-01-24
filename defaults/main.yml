@@ -15,3 +15,6 @@ tincvpn_key_bits: 2048
 
 # where to save host public keys locally
 tincvpn_local_directory: "{{ inventory_dir }}/tincvpn-hosts"
+
+# To which host we should connect to per default
+tincvpn_connect_to:
