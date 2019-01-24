@@ -7,6 +7,9 @@ tincvpn_interface: tinc
 # subnet (CIDR)
 tincvpn_subnet: 192.168.255.0/24
 
+# tinc VPN mode
+tincvpn_mode: switch
+
 # list of (additional) hosts to connect to
 tincvpn_hosts:
 
