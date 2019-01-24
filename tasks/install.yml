@@ -1,0 +1,4 @@
+- name: ensure tinc is installed
+  package:
+    name: tinc
+    state: present

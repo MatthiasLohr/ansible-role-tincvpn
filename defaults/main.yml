@@ -1,0 +1,17 @@
+# name of the tinc network (also name of configuration directory)
+tincvpn_network: default
+
+# name of the network interface
+tincvpn_interface: tinc
+
+# subnet (CIDR)
+tincvpn_subnet: 192.168.255.0/24
+
+# list of (additional) hosts to connect to
+tincvpn_hosts:
+
+# private key length for host keys
+tincvpn_key_bits: 2048
+
+# where to save host public keys locally
+tincvpn_local_directory: "{{ inventory_dir }}/tincvpn-hosts"

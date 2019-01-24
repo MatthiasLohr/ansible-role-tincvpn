@@ -1,0 +1,10 @@
+- name: ensure network is in nets.boot
+  lineinfile:
+    path: "/etc/tinc/nets.boot"
+    line: "{{ tincvpn_network }}"
+
+- name: Configure systemd service
+  systemd:
+    name: "tinc@{{ tincvpn_network }}"
+    enabled: True
+  when: ansible_service_mgr == 'systemd'

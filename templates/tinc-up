@@ -1,0 +1,2 @@
+#!/bin/sh
+ifconfig $INTERFACE {{ tincvpn_ip }} netmask {{ tincvpn_subnet|ipaddr('netmask') }}

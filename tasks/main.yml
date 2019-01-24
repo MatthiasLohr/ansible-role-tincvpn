@@ -1,0 +1,6 @@
+- set_fact:
+    tincvpn_nodename: "{{ inventory_hostname | regex_replace('[^0-9a-zA-Z]+', '_') }}"
+
+- import_tasks: "install.yml"
+- import_tasks: "write-configuration.yml"
+- import_tasks: "configure-service.yml"
