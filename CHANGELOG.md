@@ -1,6 +1,6 @@
 # Changelog
 
-## staged
+## v0.2.0
 
 * Added Ansible Galaxy meta information
 * Fixed some Ansible Galaxy warnings
