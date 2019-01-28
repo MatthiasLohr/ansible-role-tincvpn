@@ -59,3 +59,15 @@
     dest: "/etc/tinc/{{ tincvpn_network }}/hosts/"
   notify:
     - reload tinc VPN
+
+- name: write additional hosts
+  template:
+    src: "templates/host"
+    dest: "/etc/tinc/{{ tincvpn_network }}/hosts/{{ item.name }}"
+    mode: "0644"
+  vars:
+    tincvpn_host_address: "{{ item.address }}"
+    tincvpn_host_public_key: "{{ item.public_key }}"
+  with_items: "{{ tincvpn_extra_hosts }}"
+  notify:
+    - reload tinc VPN

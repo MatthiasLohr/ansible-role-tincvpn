@@ -11,7 +11,7 @@ tincvpn_subnet: 192.168.255.0/24
 tincvpn_mode: switch
 
 # list of (additional) hosts to connect to
-tincvpn_hosts:
+tincvpn_extra_hosts: []
 
 # private key length for host keys
 tincvpn_key_bits: 2048
