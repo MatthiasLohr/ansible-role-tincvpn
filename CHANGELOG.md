@@ -1,8 +1,9 @@
 # Changelog
 
-## staged
+## v0.3.0
 
 * Added support for adding routes
+* Use Subnet definition only in router mode
 
 ## v0.2.0
 
