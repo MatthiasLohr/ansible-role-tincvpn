@@ -28,18 +28,20 @@ Simple playbook example:
 
 ## Host Variables
 
-| `tincvpn_ip` | `none` | tinc IP address of this node (should be part of `tincvpn_subnet`) |
+| Variable Name | Default Value | Description                                                       |
+|---------------|---------------|-------------------------------------------------------------------|
+| `tincvpn_ip`  | `none`        | tinc IP address of this node (should be part of `tincvpn_subnet`) |
 
 
 ## Role Variables
 
-| Variable Name | Default Value | Description |
-|
-| `tincvpn_network`         | `"default"`                           | name of the tinc network (e.g. tinc configuration folder name) |
-| `tincvpn_interface`       | `"tinc"`                              | name for the network interface used by tinc |
-| `tincvpn_subnet`          | `"192.168.255.0/24"`                  | subnet used by tinc |
-| `tincvpn_mode`            | `"switch"`                            | tinc `Mode` setting |
+| Variable Name             | Default Value                         | Description                                                                                           |
+|---------------------------|---------------------------------------|-------------------------------------------------------------------------------------------------------|
+| `tincvpn_network`         | `"default"`                           | name of the tinc network (e.g. tinc configuration folder name)                                        |
+| `tincvpn_interface`       | `"tinc"`                              | name for the network interface used by tinc                                                           |
+| `tincvpn_subnet`          | `"192.168.255.0/24"`                  | subnet used by tinc                                                                                   |
+| `tincvpn_mode`            | `"switch"`                            | tinc `Mode` setting                                                                                   |
 | `tincvpn_hosts`           | `[]`                                  | additional tinc hosts available (not covered by playbook, read [Additional Hosts](#additional-hosts)) |
-| `tincvpn_key_bits`        | `2048`                                | private key length |
-| `tincvpn_connect_to`      | `[]`                                  | nodes to connect to by default |
-| `tincvpn_local_directory` | `"{{ inventory_dir }}/tincvpn-hosts"` | where to save host public keys locally |
+| `tincvpn_key_bits`        | `2048`                                | private key length                                                                                    |
+| `tincvpn_connect_to`      | `[]`                                  | nodes to connect to by default                                                                        |
+| `tincvpn_local_directory` | `"{{ inventory_dir }}/tincvpn-hosts"` | where to save host public keys locally                                                                |
