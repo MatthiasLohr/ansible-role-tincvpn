@@ -1,4 +1,5 @@
-- set_fact:
+- name: set custom facts for tinc VPN
+  set_fact:
     tincvpn_nodename: "{{ inventory_hostname | regex_replace('[^0-9a-zA-Z]+', '_') }}"
 
 - import_tasks: "install.yml"
