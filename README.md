@@ -23,7 +23,7 @@ Simple playbook example:
 ```yaml
 - hosts: localhost
   roles:
-    - mlohr.tincvpn
+    - matthiaslohr.tincvpn
 ```
 
 
