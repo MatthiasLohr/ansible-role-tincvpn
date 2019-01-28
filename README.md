@@ -8,7 +8,7 @@ Add role to your `requirements.yml`:
 ```yaml
 - src: https://github.com/MatthiasLohr/ansible-role-tincvpn
   name: matthiaslohr.tincvpn
-  version: v0.2.0
+  version: v0.3.0
 ```
 
 Set `tincvpn_ip` for your hosts in inventory file:
