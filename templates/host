@@ -1,3 +1,5 @@
 Address = {{ tincvpn_host_address }}
+{% if tincvpn_mode == 'router' %}
 Subnet = {{ tincvpn_subnet }}
+{% endif %}
 {{ tincvpn_host_public_key }}
