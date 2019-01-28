@@ -5,14 +5,14 @@ This is a ansible role for setting up a (single) tinc VPN (https://www.tinc-vpn.
 ## Usage
 
 Add role to your `requirements.yml`:
-```
+```yaml
 - src: https://github.com/MatthiasLohr/
   name: mlohr.tincvpn
   version: v0.1.0
 ```
 
 Set `tincvpn_ip` for your hosts in inventory file:
-```
+```ini
 [all]
 node1 tincvpn_ip=192.168.255.1
 node2 tincvpn_ip=192.168.255.2
@@ -20,7 +20,7 @@ node3 tincvpn_ip=192.168.255.3
 ```
 
 Simple playbook example:
-```
+```yaml
 - hosts: localhost
   roles:
     - mlohr.tincvpn
