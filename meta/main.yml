@@ -1,5 +1,5 @@
 galaxy_info:
-  role_name: mlohr.tincvpn
+  role_name: tincvpn
   author: Matthias Lohr <mail@mlohr.com>
   description: Ansible Role for setting up a (single) tinc VPN network
   company: https://mlohr.com/

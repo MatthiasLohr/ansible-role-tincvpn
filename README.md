@@ -7,8 +7,8 @@ This is a ansible role for setting up a (single) tinc VPN (https://www.tinc-vpn.
 Add role to your `requirements.yml`:
 ```yaml
 - src: https://github.com/MatthiasLohr/ansible-role-tincvpn
-  name: mlohr.tincvpn
-  version: v0.1.0
+  name: matthiaslohr.tincvpn
+  version: v0.2.0
 ```
 
 Set `tincvpn_ip` for your hosts in inventory file:
