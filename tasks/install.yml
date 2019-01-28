@@ -2,3 +2,5 @@
   package:
     name: tinc
     state: present
+  retries: 3
+  delay: 10
