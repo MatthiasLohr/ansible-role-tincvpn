@@ -1,5 +1,9 @@
 # Changelog
 
+## staged
+
+* Added support for adding routes
+
 ## v0.2.0
 
 * Added Ansible Galaxy meta information

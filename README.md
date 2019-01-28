@@ -45,10 +45,13 @@ Simple playbook example:
 | `tincvpn_extra_hosts` | `[]` | Additional tinc hosts available (not covered by playbook, read [Additional Hosts](#additional-hosts)). |
 | `tincvpn_key_bits` | `2048` | Length of RSA private key. |
 | `tincvpn_connect_to` | `[]` | Nodes to connect to by default. You can give a single nodename as string or multiple nodes as list of strings. |
+| `tincvpn_routes` | `[]` | Add routes using the tinc VPN network interface. |
 | `tincvpn_local_directory` | `"{{ inventory_dir }}/tincvpn-hosts"` | Where to save host public keys locally. |
 
 
-## Additional Hosts
+## Configuration Tweaks
+
+### Additional Hosts
 
 In case you want to connect to a node that is not included in the Ansible inventory (e.g. a central router you want to connect to), it is possible to configure additional hosts via playbook variables:
 ```yaml
@@ -66,4 +69,13 @@ tincvpn_extra_hosts:
       -----BEGIN RSA PUBLIC KEY-----
       ...
       -----END RSA PUBLIC KEY-----
+```
+
+
+### Custom Routes
+
+```yaml
+tincvpn_routes:
+  - network: "192.168.254.0/24"
+    gateway: "192.168.255.1"
 ```

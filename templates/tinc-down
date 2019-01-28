@@ -1,1 +1,4 @@
 #!/bin/sh
+{% for route in tincvpn_routes %}
+ip route del {{ route.network }} via {{ route.gateway }} dev $INTERFACE
+{% endfor %}

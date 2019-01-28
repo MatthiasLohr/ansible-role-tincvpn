@@ -1,2 +1,6 @@
 #!/bin/sh
 ifconfig $INTERFACE {{ tincvpn_ip }} netmask {{ tincvpn_subnet|ipaddr('netmask') }}
+
+{% for route in tincvpn_routes %}
+ip route add {{ route.network }} via {{ route.gateway }} dev $INTERFACE
+{% endfor %}

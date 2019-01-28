@@ -21,3 +21,6 @@ tincvpn_local_directory: "{{ inventory_dir }}/tincvpn-hosts"
 
 # To which host we should connect to per default
 tincvpn_connect_to:
+
+# Routes using the tincvpn interface
+tincvpn_routes: []
