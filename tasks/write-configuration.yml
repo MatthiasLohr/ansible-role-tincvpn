@@ -50,7 +50,7 @@
 - name: download host file to coordinator
   fetch:
     src: "/etc/tinc/{{ tincvpn_network }}/hosts/{{ tincvpn_nodename }}"
-    dest: "{{ tincvpn_local_directory}}/{{ tincvpn_nodename }}"
+    dest: "{{ tincvpn_local_directory }}/{{ tincvpn_nodename }}"
     flat: True
 
 - name: upload all host files on each hosts
