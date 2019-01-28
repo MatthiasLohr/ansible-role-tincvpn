@@ -10,7 +10,7 @@
 
 - name: generate RSA private key
   command: "openssl genrsa -out /etc/tinc/{{ tincvpn_network }}/rsa_key.priv {{ tincvpn_key_bits }}"
-  when: private_key_stat.stat.exists == False
+  when: not private_key_stat.stat.exists
   register: private_key_generate
   changed_when: private_key_generate.rc != 0
   failed_when: private_key_generate.rc != 0
