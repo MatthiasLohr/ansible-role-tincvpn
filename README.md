@@ -8,6 +8,7 @@ Add role to your `requirements.yml`:
 ```
 - src: https://github.com/MatthiasLohr/
   name: mlohr.tincvpn
+  version: v0.1.0
 ```
 
 Set `tincvpn_ip` for your hosts in inventory file:
