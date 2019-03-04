@@ -53,7 +53,7 @@
     dest: "{{ tincvpn_local_directory }}/{{ tincvpn_nodename }}"
     flat: True
 
-- name: upload all host files on each hosts
+- name: upload host files to all hosts
   copy:
     src: "{{ tincvpn_local_directory }}/"
     dest: "/etc/tinc/{{ tincvpn_network }}/hosts/"
