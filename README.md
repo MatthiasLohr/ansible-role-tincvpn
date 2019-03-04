@@ -28,7 +28,7 @@ Simple playbook example:
     - matthiaslohr.tincvpn
 ```
 
-For examples how to configure multiple tinc networks in parallel, take a look at the [project wiki](https://github.com/MatthiasLohr/ansible-role-tincvpn/wiki/Multiple-Tinc-VPN-Networks).
+For examples how to configure multiple tinc networks in parallel, take a look at the [documentation](doc/multiple-networks.md).
 
 
 ## Host Variables

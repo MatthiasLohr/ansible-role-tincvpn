@@ -2,6 +2,7 @@
 
 ## unreleased
 
+* Added support for configuring multiple networks in parallel
 * Added support for `Port` setting
 
 ## v0.3.0
