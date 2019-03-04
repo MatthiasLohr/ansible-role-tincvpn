@@ -1,5 +1,9 @@
 # Changelog
 
+## unreleased
+
+* Added support for `Port` setting
+
 ## v0.3.0
 
 * Added support for adding routes

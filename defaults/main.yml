@@ -10,6 +10,9 @@ tincvpn_subnet: 192.168.255.0/24
 # tinc VPN mode
 tincvpn_mode: switch
 
+# tinc listening port
+tincvpn_port: 655
+
 # list of (additional) hosts to connect to
 tincvpn_extra_hosts: []
 
