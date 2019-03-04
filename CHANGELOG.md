@@ -1,6 +1,6 @@
 # Changelog
 
-## unreleased
+## v1.0.0
 
 * Added support for configuring multiple networks in parallel
 * Added support for `Port` setting
