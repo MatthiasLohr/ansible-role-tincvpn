@@ -2,7 +2,7 @@
 tincvpn_network: default
 
 # name of the network interface
-tincvpn_interface: tinc
+tincvpn_interface: "tincvpn-{{ tincvpn_network }}"
 
 # subnet (CIDR)
 tincvpn_subnet: 192.168.255.0/24
@@ -20,7 +20,7 @@ tincvpn_extra_hosts: []
 tincvpn_key_bits: 2048
 
 # where to save host public keys locally
-tincvpn_local_directory: "{{ inventory_dir }}/tincvpn-hosts"
+tincvpn_local_directory: "{{ inventory_dir }}/tincvpn-hosts/{{ tincvpn_network }}"
 
 # To which host we should connect to per default
 tincvpn_connect_to:
