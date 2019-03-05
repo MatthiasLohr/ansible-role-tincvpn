@@ -27,3 +27,6 @@ tincvpn_connect_to:
 
 # Routes using the tincvpn interface
 tincvpn_routes: []
+
+tincvpn_safechars_regex: '[^0-9a-zA-Z]+'
+tincvpn_safechars_replacement: '_'
