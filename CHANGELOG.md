@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.0.2
+
+* Bugfix: Updated project description
+
 ## v1.0.1
 
 * Bugfix: Check `tincvpn_connect_to` (string) for safechars

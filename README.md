@@ -1,6 +1,6 @@
 # Ansible Role for tinc VPN
 
-This is a ansible role for setting up one or many tinc VPN (https://www.tinc-vpn.org/) on your hosts.
+This is an Ansible role for setting up one or many tinc VPN networks (https://www.tinc-vpn.org/).
 
 ## Usage
 
