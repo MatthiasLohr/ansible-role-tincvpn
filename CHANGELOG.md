@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.0.1
+
+* Bugfix: Check `tincvpn_connect_to` (string) for safechars
+
 ## v1.0.0
 
 * Added support for configuring multiple networks in parallel
