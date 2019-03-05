@@ -3,9 +3,7 @@ galaxy_info:
   author: Matthias Lohr <mail@mlohr.com>
   description: Ansible Role for setting up a (single) tinc VPN network
   company: https://mlohr.com/
-  license: undecided
-  # min_ansible_version: unknown
-  # min_ansible_container_version:
+  license: MIT
 
   galaxy_tags:
     - vpn
