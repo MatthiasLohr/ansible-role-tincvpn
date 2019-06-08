@@ -5,14 +5,14 @@ It's possible to set up multiple tinc networks in parallel by using the role mul
 ```yaml
 - hosts: group1
   roles:
-    - role: matthiaslohr.tincvpn
+    - role: steuf.tincvpn
       vars:
         tincvpn_network: "net1"
         tincvpn_subnet: "192.168.255.0/24"
 
 - hosts: group2
   roles:
-    - role: matthiaslohr.tincvpn
+    - role: steuf.tincvpn
       vars:
         tincvpn_network: "net2"
         tincvpn_subnet: "192.168.42.0/24"

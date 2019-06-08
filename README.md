@@ -6,8 +6,8 @@ This is an Ansible role for setting up one or many tinc VPN networks (https://ww
 
 Add role to your `requirements.yml`:
 ```yaml
-- src: https://github.com/MatthiasLohr/ansible-role-tincvpn
-  name: matthiaslohr.tincvpn
+- src: https://github.com/Steuf/ansible-role-tincvpn
+  name: steuf.tincvpn
 ```
 
 It's also possible to specify the version to be installed by using the `version` parameters.
@@ -25,7 +25,7 @@ Simple playbook example:
 ```yaml
 - hosts: all
   roles:
-    - matthiaslohr.tincvpn
+    - steuf.tincvpn
 ```
 
 For examples how to configure multiple tinc networks in parallel, take a look at the [documentation](doc/multiple-networks.md).

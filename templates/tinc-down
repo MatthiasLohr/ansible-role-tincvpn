@@ -1,4 +1,16 @@
-#!/bin/sh
+#!/bin/bash
+SERVER_INTERFACE= `ip addr show | awk '/inet.*brd/{print $NF; exit}'`
+GATEWAY=`ip route show | awk '/dev $SERVER_INTERFACE .* scope link/{print $1}' | sed 's/\/[0-9]*//g'`
+ROUTES=`ip route show | awk '/via .* dev $SERVER_INTERFACE/{print $1}'`
+
 {% for route in tincvpn_routes %}
+{% if route.network == 'default' %}
+for ip in $ROUTES; do
+    ip route delete $ip
+done
+ip link set dev $INTERFACE down
+ip route delete default
+ip route add default via $GATEWAY dev $SERVER_INTERFACE
+{% endif %}
 ip route del {{ route.network }} via {{ route.gateway }} dev $INTERFACE
 {% endfor %}
