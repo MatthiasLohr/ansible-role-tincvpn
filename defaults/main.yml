@@ -30,3 +30,4 @@ tincvpn_routes: []
 
 tincvpn_safechars_regex: '[^0-9a-zA-Z]+'
 tincvpn_safechars_replacement: '_'
+tincvpn_is_the_gateway: false

@@ -5,7 +5,7 @@ SERVER_INTERFACE=`ip addr show | awk '/inet.*brd/{print $NF; exit}'`
 sleep 1
 done
 
-{% if tincvpn_is_the_gateway is not none and tincvpn_is_the_gateway %}
+{% if tincvpn_is_the_gateway == 'true' %}
 iptables -t nat -A POSTROUTING -o $SERVER_INTERFACE -j MASQUERADE
 {% endif %}
 
