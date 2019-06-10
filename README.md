@@ -53,6 +53,7 @@ For examples how to configure multiple tinc networks in parallel, take a look at
 | `tincvpn_connect_to` | `[]` | Nodes to connect to by default. You can give a single nodename as string or multiple nodes as list of strings. |
 | `tincvpn_routes` | `[]` | Add routes using the tinc VPN network interface. |
 | `tincvpn_local_directory` | `"{{ inventory_dir }}/tincvpn-hosts/{{ tincvpn_network }}"` | Where to save host public keys locally. |
+| `tincvpn_is_the_gateway` | `false` | Define server(s) on the playbook is the gateway. |
 
 
 ## Configuration Tweaks
