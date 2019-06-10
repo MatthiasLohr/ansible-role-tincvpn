@@ -1,6 +1,7 @@
 # Ansible Role for tinc VPN
 
 This is an Ansible role for setting up one or many tinc VPN networks (https://www.tinc-vpn.org/).
+This is a fork from https://mlohr.com/ansible-role-for-tinc-vpn/ for supporting Scaleway provider.
 
 ## Usage
 
@@ -83,4 +84,5 @@ tincvpn_extra_hosts:
 tincvpn_routes:
   - network: "192.168.254.0/24"
     gateway: "192.168.255.1"
+    provider: scaleway
 ```
