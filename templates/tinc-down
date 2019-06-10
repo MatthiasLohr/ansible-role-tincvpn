@@ -3,9 +3,9 @@
 {% if route.network == 'default' %}
 ip route delete default
 {% if route.provider is defined and route.provider == 'scaleway' %}
-SERVER_INTERFACE= `ip addr show | awk '/inet.*brd/{print $NF; exit}'`
-GATEWAY=`ip route show | awk '/dev $SERVER_INTERFACE .* scope link/{print $1}' | sed 's/\/[0-9]*//g'`
-ROUTES=`ip route show | awk '/via .* dev $SERVER_INTERFACE/{print $1}'`
+SERVER_INTERFACE=`ip addr show | awk '/inet.*brd/{print $NF; exit}'`
+GATEWAY=`ip route show | awk '/dev '"$SERVER_INTERFACE"' .* scope link/{print $1}' | sed 's/\/[0-9]*//g'`
+ROUTES=`ip route show | awk '/via .* dev '"$SERVER_INTERFACE"'/{print $1}'`
 for ip in $ROUTES; do
     ip route delete $ip
 done
