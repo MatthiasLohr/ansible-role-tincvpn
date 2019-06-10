@@ -1,5 +1,10 @@
 # Changelog
 
+## v1.0.3
+
+* Added: Support of default route change
+* Added: Support of scaleway provider
+
 ## v1.0.2
 
 * Bugfix: Updated project description
