@@ -16,12 +16,9 @@ ifconfig $INTERFACE {{ hostvars[inventory_hostname]['tincvpn_'+tincvpn_network+'
 
 {% for route in tincvpn_routes %}
 {% if route.network == 'default' %}
-{% if route.provider == 'scaleway' %}
+{% if route.provider is defined and route.provider == 'scaleway' %}
 # Setup the default gateway
-
 GATEWAY=`ip route show default | awk '/default via/{print $3}'`
-SERVERIP=`ifconfig ens2 | grep "inet " | awk -F'[: ]+' '{ print $3 }'`
-
 ip route delete default
 ip route add 10.0.0.0/8 via $GATEWAY dev $SERVER_INTERFACE
 ip route add 169.254.0.0/16 via $GATEWAY dev $SERVER_INTERFACE
