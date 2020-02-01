@@ -2,6 +2,7 @@
   lineinfile:
     path: "{{ tincvpn_config_path }}/nets.boot"
     line: "{{ tincvpn_network }}"
+    create: yes
 
 - name: Configure systemd service
   systemd:
