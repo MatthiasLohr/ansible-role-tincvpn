@@ -4,9 +4,6 @@
       name: snapd
       state: present
       register: package_result
-      retries: 3
-      until: package_result is success
-      delay: 10
   - name: enable snapd service
     service:
       name: snapd
