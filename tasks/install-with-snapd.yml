@@ -3,7 +3,7 @@
     package:
       name: snapd
       state: present
-      register: package_result
+    register: package_result
   - name: enable snapd service
     service:
       name: snapd
