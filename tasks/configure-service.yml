@@ -1,6 +1,6 @@
 - name: ensure network is in nets.boot
   lineinfile:
-    path: "/etc/tinc/nets.boot"
+    path: "{{ tincvpn_config_path}}/nets.boot"
     line: "{{ tincvpn_network }}"
 
 - name: Configure systemd service

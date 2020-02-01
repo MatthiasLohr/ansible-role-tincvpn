@@ -1,6 +1,9 @@
 # installation using snapd on OS without a package
 install_with_snapd: False
 
+# set default configuration folder for overriding when doing snapd install
+tincvpn_config_path: "/etc/tinc"
+
 # name of the tinc network (also name of configuration directory)
 tincvpn_network: default
 

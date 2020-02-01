@@ -1,9 +1,8 @@
 - block:
-  - name: ensure tinc is installed
+  - name: ensure snapd is installed
     package:
       name: snapd
       state: present
-    register: package_result
   - name: enable snapd service
     service:
       name: snapd
@@ -19,7 +18,7 @@
       name: tinc-vpn
   - name: create tinc-vpn snapd configuration directory
     file:
-      path: /var/snap/tinc-vpn/tinc
+      path: "{{ tincvpn_config_path}}"
       state: directory
       user: root
       group: root
