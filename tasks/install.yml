@@ -1,3 +1,15 @@
+- name: should we use the snapd package?
+  set_fact: install_with_snapd: True
+  when: (ansible_os_family == "RedHat" and ansible_distribution_major_version == "8" and not install_with_snapd)
+
+- name: install epel-release (redhat)
+  yum: >
+    name=epel-release
+    state=latest
+  when: (ansible_os_family == "RedHat" and ansible_distribution_major_version == "7")
+
+- import_tasks: "install-with-snapd.yml"
+
 - name: ensure tinc is installed
   package:
     name: tinc
@@ -6,3 +18,15 @@
   retries: 3
   until: package_result is success
   delay: 10
+  when: not install_with_snapd 
+
+- name: create tinc systemd service file (redhat)
+  template: >
+    src=tinc.service.j2
+    dest=/etc/systemd/system/tinc.service
+  register: tinc_service_file
+  when: (ansible_os_family == "RedHat" and ansible_distribution_major_version == "7")
+
+- name: systemctl daemon-reload (redhat)
+  shell: systemctl daemon-reload
+  when: tinc_service_file.changed

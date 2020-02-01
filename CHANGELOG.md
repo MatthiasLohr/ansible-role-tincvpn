@@ -1,6 +1,10 @@
 # Changelog
 
-## v1.0.3
+## v1.0.4
+
+* Added: Support for snapd package installation on eg. Centos8
+
+# v1.0.3
 
 * Added: Support of default route change
 * Added: Support of scaleway provider

@@ -1,3 +1,6 @@
+# installation using snapd on OS without a package
+install_with_snapd: False
+
 # name of the tinc network (also name of configuration directory)
 tincvpn_network: default
 
