@@ -1,4 +1,4 @@
-- ensure network configuration directory exists
+- name: ensure network configuration directory exists
   file:
     path: "{{ tincvpn_config_path }}/{{ tincvpn_network }}/hosts"
     state: directory
