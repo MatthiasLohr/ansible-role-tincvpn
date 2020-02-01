@@ -1,5 +1,6 @@
 - name: should we use the snapd package?
-  set_fact: install_with_snapd: True
+  set_fact:
+    install_with_snapd: True
   when: (ansible_os_family == "RedHat" and ansible_distribution_major_version == "8" and not install_with_snapd)
 
 - name: install epel-release (redhat)
