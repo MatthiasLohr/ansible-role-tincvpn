@@ -11,15 +11,5 @@
     name: tinc
     state: present
   register: package_result
-  when: not install_with_snapd 
+  when: not install_with_snapd
 
-- name: create tinc systemd service file (redhat)
-  template: >
-    src=tinc.service.j2
-    dest=/etc/systemd/system/tinc.service
-  register: tinc_service_file
-  when: (ansible_os_family == "RedHat" and ansible_distribution_major_version == "7")
-
-- name: systemctl daemon-reload (redhat)
-  shell: systemctl daemon-reload
-  when: tinc_service_file.changed
