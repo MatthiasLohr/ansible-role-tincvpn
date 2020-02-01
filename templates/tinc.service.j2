@@ -8,7 +8,7 @@ ExecStartPre=snap connect tinc-vpn:network-control
 ExecStartPre=snap connect tinc-vpn:network-manager
 ExecStartPre=snap connect tinc-vpn:network-observe
 ExecStartPre=snap connect tinc-vpn:network-setup-control
-ExecStart=/usr/sbin/tincd -c /var/snap/tinc-vpn/tinc/{{ netname }} --pidfile=/run/shm/snap.tinc-vpn.tinc.pid -n {{ netname }}
+ExecStart=/usr/sbin/tincd -c /var/snap/tinc-vpn/tinc/{{ tincvpn_network }} --pidfile=/run/shm/snap.tinc-vpn.tinc.pid -n {{ tincvpn_network }}
 ExecReload=/usr/bin/kill -HUP $MAINPID
 
 [Install]
