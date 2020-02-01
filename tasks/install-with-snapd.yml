@@ -20,7 +20,7 @@
     file:
       path: "{{ tincvpn_config_path}}"
       state: directory
-      user: root
+      owner: root
       group: root
       mode: 0755
   - name: create tinc systemd service file for snapd
