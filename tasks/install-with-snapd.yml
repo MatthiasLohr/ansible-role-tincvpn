@@ -12,7 +12,7 @@
     file:
       src: "/var/lib/snapd/snap"
       dest: "/"
-      state: symlink
+      state: link
   - name: Install foo
     snap:
       name: tinc-vpn
