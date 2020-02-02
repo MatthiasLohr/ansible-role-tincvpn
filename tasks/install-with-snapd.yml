@@ -56,10 +56,10 @@
       template:
         src: pntincd.te
         dest: /etc/selinux/targeted/local/pntincd.te
-	mode: 0644
+        mode: 0644
         owner: root
-	group: root
-	register: copy_policy_modules
+        group: root
+        register: copy_policy_modules
     - name: compile policies
       shell: |
         cd /etc/selinux/targeted/local/
