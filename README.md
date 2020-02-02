@@ -54,7 +54,7 @@ For examples how to configure multiple tinc networks in parallel, take a look at
 | `tincvpn_routes` | `[]` | Add routes using the tinc VPN network interface. |
 | `tincvpn_local_directory` | `"{{ inventory_dir }}/tincvpn-hosts/{{ tincvpn_network }}"` | Where to save host public keys locally. |
 | `tincvpn_is_the_gateway` | `false` | Define server(s) on the playbook is the gateway. |
-
+| `tincvpn_install_with_snapd` | `false` | Install tinc VPN via snapd on OS where no package is available. |
 
 ## Configuration Tweaks
 

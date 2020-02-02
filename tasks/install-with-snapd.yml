@@ -1,8 +1,8 @@
 - name: should we use the snapd package?
   set_fact:
-    install_with_snapd: True
+    tincvpn_install_with_snapd: True
     tincvpn_config_path: "/var/snap/tinc-vpn/tinc"
-  when: (ansible_os_family == "RedHat" and ansible_distribution_major_version >= "8" and not install_with_snapd)
+  when: (ansible_os_family == "RedHat" and ansible_distribution_major_version >= "8" and not tincvpn_install_with_snapd)
 
 - block:
   - name: ensure snapd is installed
@@ -81,4 +81,4 @@
       
     when: (ansible_os_family == "RedHat" and ansible_distribution_major_version >= "8")
 
-  when: install_with_snapd
+  when: tincvpn_install_with_snapd
