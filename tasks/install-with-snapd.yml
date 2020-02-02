@@ -81,4 +81,4 @@
       
     when: (ansible_os_family == "RedHat" and ansible_distribution_major_version >= "8")
 
-when: install_with_snapd
+  when: install_with_snapd
