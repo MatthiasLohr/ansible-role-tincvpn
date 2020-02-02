@@ -1,0 +1,11 @@
+
+module pntincd 1.0;
+
+require {
+        type init_t;
+	        type snappy_var_lib_t;
+		        class lnk_file read;
+			}
+
+#============= init_t ==============
+allow init_t snappy_var_lib_t:lnk_file read;

@@ -2,7 +2,7 @@
   set_fact:
     install_with_snapd: True
     tincvpn_config_path: "/var/snap/tinc-vpn/tinc"
-  when: (ansible_os_family == "RedHat" and ansible_distribution_major_version == "8" and not install_with_snapd)
+  when: (ansible_os_family == "RedHat" and ansible_distribution_major_version >= "8" and not install_with_snapd)
 
 - block:
   - name: ensure snapd is installed
@@ -19,7 +19,7 @@
       src: "/var/lib/snapd/snap"
       dest: "/snap"
       state: link
-  - name: Install foo
+  - name: Install tinc-vpn snap
     snap:
       name: tinc-vpn
   - name: create tinc-vpn snapd configuration directory
@@ -37,4 +37,47 @@
   - name: systemctl daemon-reload
     shell: systemctl daemon-reload
     when: tinc_service_file.changed
+  - block: 
+    - name: ensure the proper packages are available
+      package:
+        name: "{{ item }}"
+        state: present
+      with_items:
+        - policycoreutils
+        - policycoreutils-python-utils 
+    - name: create local policy directory
+      file:
+        state: directory
+        dest: /etc/selinux/targeted/local
+        mode: 0755
+        owner: root
+        group: root
+    - name: copy policy
+      template:
+        src: pntincd.te
+        dest: /etc/selinux/targeted/local/pntincd.te
+	mode: 0644
+        owner: root
+	group: root
+	register: copy_policy_modules
+    - name: compile policies
+      shell: |
+        cd /etc/selinux/targeted/local/
+        a="pntincd.te"
+        mod=$(echo $a | sed 's/\.te/.mod/')
+        pp=$(echo $a | sed 's/\.te/.pp/')
+        checkmodule -M -m -o "$mod" "$a" && semodule_package -o "$pp" -m "$mod" || {
+          rm -f "$pp" "$mod" "$a"
+          exit 4
+        }
+      register: compile_policy_modules
+      when: copy_policy_modules.changed
+    - name: load policies
+      shell: |
+        a="pntincd.te"
+        pp=$(echo $a | sed 's/\.te/.pp/')
+        semodule -i /etc/selinux/targeted/local/"$pp" || { exit 8 ; }
+      when: compile_policy_modules.changed
+      
+    when: (ansible_os_family == "RedHat" and ansible_distribution_major_version >= "8")
   when: install_with_snapd
