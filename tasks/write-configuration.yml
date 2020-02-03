@@ -23,6 +23,11 @@
   changed_when: False
   failed_when: public_key_generate.rc != 0
 
+- name: fix private key permissions
+  file:
+    path: "{{ tincvpn_config_path }}/{{ tincvpn_network }}/rsa_key.priv"
+    mode: 0600
+
 - name: write network profile configuration
   template:
     src: "templates/{{ item.file }}"

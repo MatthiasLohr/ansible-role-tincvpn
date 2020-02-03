@@ -3,6 +3,7 @@
 ## v1.0.4
 
 * Added: Support for snapd package installation on eg. Centos8
+* Fixed: Private key permissions
 
 # v1.0.3
 
