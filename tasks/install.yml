@@ -11,5 +11,5 @@
     name: tinc
     state: present
   register: package_result
-  when: not install_with_snapd
+  when: not tincvpn_install_with_snapd
 
