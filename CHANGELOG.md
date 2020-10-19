@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.0.3
+
+* Switched to iproute2 (#2, thx @devfaz)
+
 ## v1.0.2
 
 * Bugfix: Updated project description
