@@ -1,0 +1,15 @@
+[Unit]
+Description=tinc vpn %I
+After=network.target
+
+[Service]
+Type=forking
+ExecStartPre=snap connect tinc-vpn:network-control
+ExecStartPre=snap connect tinc-vpn:network-manager
+ExecStartPre=snap connect tinc-vpn:network-observe
+ExecStartPre=snap connect tinc-vpn:network-setup-control
+ExecStart=/var/lib/snapd/snap/bin/tinc-vpn.tincd -c /var/snap/tinc-vpn/tinc/%i --pidfile=/run/snap.tinc-vpn.tincd.%i.pid
+ExecReload=/usr/bin/kill -HUP $MAINPID
+
+[Install]
+WantedBy=multi-user.target

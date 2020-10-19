@@ -1,10 +1,31 @@
-#!/bin/sh
+#!/bin/bash
+SERVER_INTERFACE=''
+while [ -z "$SERVER_INTERFACE" ]; do
+SERVER_INTERFACE=`ip addr show | awk '/inet.*brd/{print $NF; exit}'`
+sleep 1
+done
+
+{% if tincvpn_is_the_gateway == 'true' %}
+iptables -t nat -A POSTROUTING -o $SERVER_INTERFACE -j MASQUERADE
+{% endif %}
 
 {% if 'tincvpn_'+tincvpn_network+'_ip' in hostvars[inventory_hostname] %}
 ip address add dev $INTERFACE {{ hostvars[inventory_hostname]['tincvpn_'+tincvpn_network+'_ip'] }}/{{ tincvpn_subnet|ipaddr('netmask') }}
 ip link set dev $INTERFACE up
 {% endif %}
 
+
 {% for route in tincvpn_routes %}
+{% if route.network == 'default' %}
+{% if route.provider is defined and route.provider == 'scaleway' %}
+# Setup the default gateway
+GATEWAY=`ip route show default | awk '/default via/{print $3}'`
+ip route delete default
+ip route add 10.0.0.0/8 via $GATEWAY dev $SERVER_INTERFACE
+ip route add 169.254.0.0/16 via $GATEWAY dev $SERVER_INTERFACE
+{% else %}
+ip route delete default
+{% endif %}
+{% endif %}
 ip route add {{ route.network }} via {{ route.gateway }} dev $INTERFACE
 {% endfor %}
