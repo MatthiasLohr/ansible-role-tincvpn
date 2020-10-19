@@ -1,7 +1,8 @@
 #!/bin/sh
 
 {% if 'tincvpn_'+tincvpn_network+'_ip' in hostvars[inventory_hostname] %}
-ifconfig $INTERFACE {{ hostvars[inventory_hostname]['tincvpn_'+tincvpn_network+'_ip'] }} netmask {{ tincvpn_subnet|ipaddr('netmask') }}
+ip address add dev $INTERFACE {{ hostvars[inventory_hostname]['tincvpn_'+tincvpn_network+'_ip'] }}/{{ tincvpn_subnet|ipaddr('netmask') }}
+ip link set dev $INTERFACE up
 {% endif %}
 
 {% for route in tincvpn_routes %}
