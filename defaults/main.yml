@@ -30,3 +30,8 @@ tincvpn_routes: []
 
 tincvpn_safechars_regex: '[^0-9a-zA-Z]+'
 tincvpn_safechars_replacement: '_'
+
+# custom configuration for updown scripts and main service
+tincvpn_custom_config: {}
+tincvpn_custom_up_scripts: []
+tincvpn_custom_down_scripts: []
