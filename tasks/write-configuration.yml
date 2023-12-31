@@ -44,7 +44,7 @@
     dest: "/etc/tinc/{{ tincvpn_network }}/hosts/{{ tincvpn_nodename }}"
     mode: "0644"
   vars:
-    tincvpn_host_address: "{{ ansible_ssh_host }}"
+    tincvpn_host_address: "{{ ansible_host }}"
     tincvpn_host_public_key: "{{ public_key_generate.stdout }}"
 
 - name: download host file to coordinator
