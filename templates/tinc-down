@@ -2,3 +2,12 @@
 {% for route in tincvpn_routes %}
 ip route del {{ route.network }} via {{ route.gateway }} dev $INTERFACE
 {% endfor %}
+
+{% if tincvpn_custom_down_scripts is not none and tincvpn_custom_down_scripts|length %}
+{% if tincvpn_custom_down_scripts is iterable and tincvpn_custom_down_scripts is not string %}
+{% for command in tincvpn_custom_down_scripts %}
+{{ command }}
+{% endfor %}
+{% endif %}
+{% endif %}
+

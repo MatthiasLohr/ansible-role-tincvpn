@@ -40,18 +40,21 @@ For examples how to configure multiple tinc networks in parallel, take a look at
 
 ## Role Variables
 
-| Variable Name | Default Value | Description |
-|---------------|---------------|-------------|
-| `tincvpn_network` | `"default"` | Name of the tinc network (e.g. tinc configuration folder name). |
-| `tincvpn_interface` | `"tincvpn-{{ tincvpn_network }}"` | Name for the network interface used by tinc. |
-| `tincvpn_subnet` | `"192.168.255.0/24"` | Subnet used by tinc. |
-| `tincvpn_mode` | `"switch"` | Tinc `Mode` setting. |
-| `tincvpn_port` | `655` | Tinc listening port. |
-| `tincvpn_extra_hosts` | `[]` | Additional tinc hosts available (not covered by playbook, read [Additional Hosts](#additional-hosts)). |
-| `tincvpn_key_bits` | `2048` | Length of RSA private key. |
-| `tincvpn_connect_to` | `[]` | Nodes to connect to by default. You can give a single nodename as string or multiple nodes as list of strings. |
-| `tincvpn_routes` | `[]` | Add routes using the tinc VPN network interface. |
-| `tincvpn_local_directory` | `"{{ inventory_dir }}/tincvpn-hosts/{{ tincvpn_network }}"` | Where to save host public keys locally. |
+| Variable Name                 | Default Value                                               | Description                                                                                                    |
+|-------------------------------|-------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------|
+| `tincvpn_network`             | `"default"`                                                 | Name of the tinc network (e.g. tinc configuration folder name).                                                |
+| `tincvpn_interface`           | `"tincvpn-{{ tincvpn_network }}"`                           | Name for the network interface used by tinc.                                                                   |
+| `tincvpn_subnet`              | `"192.168.255.0/24"`                                        | Subnet used by tinc.                                                                                           |
+| `tincvpn_mode`                | `"switch"`                                                  | Tinc `Mode` setting.                                                                                           |
+| `tincvpn_port`                | `655`                                                       | Tinc listening port.                                                                                           |
+| `tincvpn_extra_hosts`         | `[]`                                                        | Additional tinc hosts available (not covered by playbook, read [Additional Hosts](#additional-hosts)).         |
+| `tincvpn_key_bits`            | `2048`                                                      | Length of RSA private key.                                                                                     |
+| `tincvpn_connect_to`          | `[]`                                                        | Nodes to connect to by default. You can give a single nodename as string or multiple nodes as list of strings. |
+| `tincvpn_routes`              | `[]`                                                        | Add routes using the tinc VPN network interface.                                                               |
+| `tincvpn_local_directory`     | `"{{ inventory_dir }}/tincvpn-hosts/{{ tincvpn_network }}"` | Where to save host public keys locally.                                                                        |
+| `tincvpn_custom_config`       | `{}`                                                        | Dictionary with tinc vpn custom config parameters. ex.: `PingInterval: "60"`                                   |
+| `tincvpn_custom_up_scripts`   | `[]`                                                        | Custom commands set for tinc-up script template.                                                               |
+| `tincvpn_custom_down_scripts` | `[]`                                                        | Custom commands set for tinc-down script template.                                                             |
 
 
 ## Configuration Tweaks

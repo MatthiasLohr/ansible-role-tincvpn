@@ -8,3 +8,11 @@ ip link set dev $INTERFACE up
 {% for route in tincvpn_routes %}
 ip route add {{ route.network }} via {{ route.gateway }} dev $INTERFACE
 {% endfor %}
+
+{% if tincvpn_custom_up_scripts is not none and tincvpn_custom_up_scripts|length %}
+{% if tincvpn_custom_up_scripts is iterable and tincvpn_custom_up_scripts is not string %}
+{% for command in tincvpn_custom_up_scripts %}
+{{ command }}
+{% endfor %}
+{% endif %}
+{% endif %}
