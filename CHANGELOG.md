@@ -1,5 +1,10 @@
 # Changelog
 
+
+## v1.1.0
+
+  * Added support for custom commands and configuration options (#3 by h33x0)
+
 ## v1.0.4
 
   * Fixed deprecated ansible_ssh_host (#4 by @mtearle)
